@@ -1,43 +1,47 @@
-const expenseName = document.getElementById("expenseName");
-const expenseAmount = document.getElementById("expenseAmount");
-const addBtn = document.getElementById("addBtn");
-const expenseList = document.getElementById("expenseList");
-const totalText = document.getElementById("total");
+document.addEventListener("DOMContentLoaded", function () {
 
-let total = 0;
+  const expenseName = document.getElementById("expenseName");
+  const expenseAmount = document.getElementById("expenseAmount");
+  const addBtn = document.getElementById("addBtn");
+  const expenseList = document.getElementById("expenseList");
+  const totalText = document.getElementById("total");
 
-addBtn.addEventListener("click", () => {
-  const name = expenseName.value.trim();
-  const amount = Number(expenseAmount.value);
+  let total = 0;
 
-  if (name === "" || amount <= 0) {
-    alert("Please enter valid expense details");
-    return;
-  }
+  addBtn.addEventListener("click", function () {
+    const name = expenseName.value.trim();
+    const amount = parseFloat(expenseAmount.value);
 
-  const row = document.createElement("tr");
+    if (name === "" || isNaN(amount) || amount <= 0) {
+      alert("Please enter a valid expense name and amount");
+      return;
+    }
 
-  const nameCell = document.createElement("td");
-  nameCell.textContent = name;
+    const row = document.createElement("tr");
 
-  const amountCell = document.createElement("td");
-  amountCell.textContent = amount.toLocaleString("en-IN", {
-    style: "currency",
-    currency: "INR"
-  });
+    const nameCell = document.createElement("td");
+    nameCell.textContent = name;
 
-  row.appendChild(nameCell);
-  row.appendChild(amountCell);
-  expenseList.appendChild(row);
-
-  total += amount;
-  totalText.textContent =
-    "Total: " +
-    total.toLocaleString("en-IN", {
+    const amountCell = document.createElement("td");
+    amountCell.textContent = amount.toLocaleString("en-IN", {
       style: "currency",
       currency: "INR"
     });
 
-  expenseName.value = "";
-  expenseAmount.value = "";
+    row.appendChild(nameCell);
+    row.appendChild(amountCell);
+    expenseList.appendChild(row);
+
+    total += amount;
+    totalText.textContent =
+      "Total: " +
+      total.toLocaleString("en-IN", {
+        style: "currency",
+        currency: "INR"
+      });
+
+    expenseName.value = "";
+    expenseAmount.value = "";
+  });
+
 });
