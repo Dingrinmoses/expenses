@@ -1,30 +1,43 @@
-let totalAmount = 0;
+const expenseName = document.getElementById("expenseName");
+const expenseAmount = document.getElementById("expenseAmount");
+const addBtn = document.getElementById("addBtn");
+const expenseList = document.getElementById("expenseList");
+const totalText = document.getElementById("total");
 
-function addExpense() {
-  const titleInput = document.getElementById("title");
-  const amountInput = document.getElementById("amount");
-  const list = document.getElementById("expenseList");
-  const total = document.getElementById("total");
+let total = 0;
 
-  const title = titleInput.value;
-  const amount = Number(amountInput.value);
+addBtn.addEventListener("click", () => {
+  const name = expenseName.value.trim();
+  const amount = Number(expenseAmount.value);
 
-  if (title === "" || amount === 0) {
-    alert("Please enter expense name and amount");
+  if (name === "" || amount <= 0) {
+    alert("Please enter valid expense details");
     return;
   }
 
   const row = document.createElement("tr");
-  row.innerHTML = `
-    <td>${title}</td>
-    <td>?${amount}</td>
-  `;
 
-  list.appendChild(row);
+  const nameCell = document.createElement("td");
+  nameCell.textContent = name;
 
-  totalAmount += amount;
-  total.textContent = totalAmount;
+  const amountCell = document.createElement("td");
+  amountCell.textContent = amount.toLocaleString("en-IN", {
+    style: "currency",
+    currency: "INR"
+  });
 
-  titleInput.value = "";
-  amountInput.value = "";
-}
+  row.appendChild(nameCell);
+  row.appendChild(amountCell);
+  expenseList.appendChild(row);
+
+  total += amount;
+  totalText.textContent =
+    "Total: " +
+    total.toLocaleString("en-IN", {
+      style: "currency",
+      currency: "INR"
+    });
+
+  expenseName.value = "";
+  expenseAmount.value = "";
+});

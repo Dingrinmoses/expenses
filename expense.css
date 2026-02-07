@@ -1,68 +1,80 @@
 ﻿* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 body {
-  background: linear-gradient(135deg, #667eea, #764ba2);
   min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.card {
-  background: white;
-  width: 350px;
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-h2 {
+.app {
+  background: white;
+  width: 100%;
+  max-width: 420px;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+h1 {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-.form {
+.input-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 input {
-  padding: 10px;
-  border-radius: 6px;
+  padding: 12px;
+  border-radius: 10px;
   border: 1px solid #ccc;
 }
 
 button {
-  padding: 10px;
+  padding: 12px;
+  border-radius: 10px;
   border: none;
-  border-radius: 6px;
   background: #667eea;
   color: white;
-  font-size: 16px;
   cursor: pointer;
 }
 
 button:hover {
-  background: #5a67d8;
+  background: #5563d8;
 }
 
 table {
   width: 100%;
-  margin-top: 15px;
+  margin-top: 20px;
   border-collapse: collapse;
 }
 
 th, td {
-  padding: 8px;
+  padding: 10px;
   border-bottom: 1px solid #ddd;
-  text-align: center;
 }
 
-h3 {
+.total-box {
+  margin-top: 20px;
+  padding: 12px;
   text-align: center;
-  margin-top: 15px;
+  font-weight: bold;
+  background: #f0f0ff;
+  border-radius: 10px;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
 }

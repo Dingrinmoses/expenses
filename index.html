@@ -1,36 +1,38 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Daily Expense Tracker</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+
+  <!-- CSS FILE -->
   <link rel="stylesheet" href="expense.css">
 </head>
 <body>
 
-  <div class="card">
-    <h2>Daily Expense Tracker</h2>
+  <div class="app">
+    <h1>💸 Expense Tracker</h1>
 
-    <div class="form">
-      <input type="text" id="title" placeholder="Expense name">
-      <input type="number" id="amount" placeholder="Amount (₹)">
-      <button onclick="addExpense()">Add Expense</button>
+    <div class="input-group">
+      <input type="text" id="expenseName" placeholder="Expense name">
+      <input type="number" id="expenseAmount" placeholder="Amount (₹)">
+      <button id="addBtn">Add Expense</button>
     </div>
 
     <table>
       <thead>
         <tr>
           <th>Expense</th>
-          <th>Amount (₹)</th>
+          <th>Amount</th>
         </tr>
       </thead>
-      <tbody id="expenseList">
-      </tbody>
+      <tbody id="expenseList"></tbody>
     </table>
 
-    <h3>Total: ₹<span id="total">0</span></h3>
+    <div class="total-box" id="total">Total: ₹0</div>
   </div>
 
+  <!-- JS FILE -->
   <script src="expense.js"></script>
 </body>
 </html>
